@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "pathToQuery": {
+            "matchCondition": {
+                "methods": [ "PUT" ],
+                "route": "/api/todo"
+            },
+            "backendUri": "https://todo-api2345.azurewebsites.net/api/todo/{id}",
+            "requestOverrides": {
+                "backend.request.querystring.id": "{id}" 
+            }
+        }
+    }
+}
