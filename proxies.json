@@ -6,7 +6,7 @@
                 "methods": [ "PUT" ],
                 "route": "/api/todo/{id}"
             },
-            "backendUri": "https://localhost/api/todo?id={id}"
+            "backendUri": "https://%WEBSITE_HOSTNAME%/api/todo?id={id}"
         }
     }
 }
