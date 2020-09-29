@@ -4,12 +4,9 @@
         "pathToQuery": {
             "matchCondition": {
                 "methods": [ "PUT" ],
-                "route": "/api/todo"
+                "route": "/api/todo/{id}"
             },
-            "backendUri": "https://todo-api2345.azurewebsites.net/api/todo/{id}",
-            "requestOverrides": {
-                "backend.request.querystring.id": "{id}" 
-            }
+            "backendUri": "https://localhost/api/todo?id={id}"
         }
     }
 }

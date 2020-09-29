@@ -5,6 +5,7 @@
     <RootNamespace>todo_api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="3.0.5" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
   </ItemGroup>
