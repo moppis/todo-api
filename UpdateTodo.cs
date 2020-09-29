@@ -15,7 +15,7 @@ namespace se.omegapoint.todo
     {
         [FunctionName("UpdateTodo")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "api/todo")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "todo")] HttpRequest req,
             [CosmosDB(
                 databaseName: "%DATABASE_NAME%",
                 collectionName: "%COLLECTION_NAME%",

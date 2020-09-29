@@ -15,7 +15,7 @@ namespace se.omegapoint.todo
     {
         [FunctionName("ReadTodo")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/todo/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todo/{id}")] HttpRequest req,
             [CosmosDB(
                 databaseName: "%DATABASE_NAME%",
                 collectionName: "%COLLECTION_NAME%",

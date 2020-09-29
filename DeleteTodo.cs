@@ -18,7 +18,7 @@ namespace se.omegapoint.todo
     {
         [FunctionName("DeleteTodo")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "api/todo/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "todo/{id}")] HttpRequest req,
             [CosmosDB(
                 databaseName: "%DATABASE_NAME%",
                 collectionName: "%COLLECTION_NAME%",

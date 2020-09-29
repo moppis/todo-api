@@ -13,7 +13,7 @@ namespace se.omegapoint.todo
     {
         [FunctionName("CreateTodo")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api/todo")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todo")] HttpRequest req,
             [CosmosDB(
                 // % - are needed to tell the functions to look for the value in appsettings or local.settings.json
                 // connections string are fetch by default from settings.
