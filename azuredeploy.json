@@ -166,7 +166,7 @@
                             },
                             {
                                 "name": "COSMOSDB_CONNECTION_STRING",
-                                "value": "[concat('AccountEndpoint=https://', variables('cosmosAccountName'), '.documents.azure.com:443/;AccountKey=', listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2020-06-01-preview').keys[0].value)]",
+                                "value": "[concat('AccountEndpoint=https://', variables('cosmosAccountName'), '.documents.azure.com:443/;AccountKey=', listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2020-06-01-preview').primaryMasterKey)]",
                                 "slotSetting": true
                             }
                         ]
