@@ -1,6 +1,6 @@
 # Todo-API
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https%3A%2F%2Fraw.githubusercontent.com%2Fmoppis%2Ftodo-api%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmoppis%2Ftodo-api%2Fmaster%2Fazuredeploy.json)
 
 This simple CRUD API is built using Azure functions, storing data in Azure Cosmos DB.
 
