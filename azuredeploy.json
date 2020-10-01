@@ -129,64 +129,63 @@
             "kind": "functionapp",
             "properties": {
                 "enabled": true,
-                "properties": {
-                    "siteConfig": {
-                        "appSettings": [
-                            {
-                                "name": "COLLECTION_NAME",
-                                "value": "[variables('collectionName')]"
-                            },
-                            {
-                                "name": "DATABASE_NAME",
-                                "value": "[variables('databaseName')]"
-                            },
-                            {
-                                "name": "FUNCTIONS_EXTENSION_VERSION",
-                                "value": "~3"
-                            },
-                            {
-                                "name": "FUNCTIONS_WORKER_RUNTIME",
-                                "value": "dotnet"
-                            },
-                            {
-                                "name": "AzureWebJobsStorage",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
-                            },
-                            {
-                                "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
-                            },
-                            {
-                                "name": "WEBSITE_CONTENTSHARE",
-                                "value": "[toLower(variables('appName'))]"
-                            },
-                            {
-                                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                                "value": "[reference(resourceId('microsoft.insights/components', variables('applicationInsightsName')), '2020-02-02-preview').InstrumentationKey]"
-                            },
-                            {
-                                "name": "COSMOSDB_CONNECTION_STRING",
-                                "value": "[concat('AccountEndpoint=https://', variables('cosmosAccountName'), '.documents.azure.com:443/;AccountKey=', listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2020-06-01-preview').primaryMasterKey)]",
-                                "slotSetting": true
-                            }
-                        ]
-                    },
-                    "resources": [
+                "siteConfig": {
+                    "appSettings": [
                         {
-                            "apiVersion": "2014-04-01",
-                            "name": "web",
-                            "type": "sourcecontrols",
-                            "dependsOn": [
-                                "[resourceId('Microsoft.Web/Sites', variables('appName'))]"
-                            ],
-                            "properties": {
-                                "RepoUrl": "[variables('gitRepository')]",
-                                "branch": "[variables('gitBranch')]",
-                                "IsManualIntegration": true
-                            }
+                            "name": "COLLECTION_NAME",
+                            "value": "[variables('collectionName')]"
+                        },
+                        {
+                            "name": "DATABASE_NAME",
+                            "value": "[variables('databaseName')]"
+                        },
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value": "~3"
+                        },
+                        {
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value": "dotnet"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value": "[toLower(variables('appName'))]"
+                        },
+                        {
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value": "[reference(resourceId('microsoft.insights/components', variables('applicationInsightsName')), '2020-02-02-preview').InstrumentationKey]"
+                        },
+                        {
+                            "name": "COSMOSDB_CONNECTION_STRING",
+                            "value": "[concat('AccountEndpoint=https://', variables('cosmosAccountName'), '.documents.azure.com:443/;AccountKey=', listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2020-06-01-preview').primaryMasterKey)]",
+                            "slotSetting": true
                         }
                     ]
-                }
+                },
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appName'))]",
+                "resources": [
+                    {
+                        "apiVersion": "2014-04-01",
+                        "name": "web",
+                        "type": "sourcecontrols",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.Web/Sites', variables('appName'))]"
+                        ],
+                        "properties": {
+                            "RepoUrl": "[variables('gitRepository')]",
+                            "branch": "[variables('gitBranch')]",
+                            "IsManualIntegration": true
+                        }
+                    }
+                ]
             }
         },
         {
