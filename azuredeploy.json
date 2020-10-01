@@ -170,23 +170,23 @@
                         }
                     ]
                 },
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appName'))]",
-                "resources": [
-                    {
-                        "apiVersion": "2014-04-01",
-                        "name": "web",
-                        "type": "sourcecontrols",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.Web/Sites', variables('appName'))]"
-                        ],
-                        "properties": {
-                            "RepoUrl": "[variables('gitRepository')]",
-                            "branch": "[variables('gitBranch')]",
-                            "IsManualIntegration": true
-                        }
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appName'))]"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2018-11-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('appName'))]"
+                    ],
+                    "properties": {
+                        "RepoUrl": "[variables('gitRepository')]",
+                        "branch": "[variables('gitBranch')]",
+                        "IsManualIntegration": true
                     }
-                ]
-            }
+                }
+            ]
         },
         {
             "type": "microsoft.insights/components",
